@@ -52,7 +52,7 @@ public class Skin {
     public Shape GetShape(){
         return this.skinShape;
     }
-    public void SetShape(Shape shape){
+    public void SetShape(PolygonShape shape){
         this.skinShape = shape;
         this.hasShape = true;
     }
@@ -65,7 +65,14 @@ public class Skin {
                         "Sprites/Rabbit.png",
                         "Sprites/RabbitWalkingRight.png",
                         "Sprites/RabbitWalkinLeft.png"));
-        skinCollection.get("StandardPlayerSkin").SetShape(new BoxShape(0.8f, 2));
+        skinCollection.get("StandardPlayerSkin").SetShape(new PolygonShape(
+                -0.76f,-2.4f,
+                0.77f,-2.38f,
+                1.2f,0.88f,
+                0.63f,1.57f,
+                -0.91f,1.5f,
+                -1.2f,0.78f
+        ));
 
         skinCollection.put("StandardEnemySkin",
                 new Skin("StandardEnemySkin",
@@ -73,7 +80,14 @@ public class Skin {
                         "Sprites/EnemyBasic.png",
                         "Sprites/EnemyRight.png",
                         "Sprites/EnemyLeft.png"));
-        skinCollection.get("StandardEnemySkin").SetShape(new BoxShape(0.8f, 2));
+        skinCollection.get("StandardEnemySkin").SetShape(new PolygonShape(
+                -0.76f,-2.4f,
+                0.77f,-2.38f,
+                1.2f,0.88f,
+                0.63f,1.57f,
+                -0.91f,1.5f,
+                -1.2f,0.78f
+        ));
 
         skinCollection.put("PortalSkin",
                 new Skin("PortalSkin", 5,

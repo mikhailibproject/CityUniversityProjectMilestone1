@@ -18,10 +18,11 @@ public class EnemySpawner extends StaticBody {
         enemies.add(e);
     }
     public void SpawnEnemy() {
-        if(!this.enemies.isEmpty()){
+        if(this.enemies.size() >= 1){
             this.enemies.poll().setPosition(this.getPosition());
-        } else {
-            this.destroy();
+            if(this.enemies.size() == 0) {
+                this.destroy();
+            }
         }
     }
 }
