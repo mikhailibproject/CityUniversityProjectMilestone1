@@ -11,7 +11,6 @@ public class Main {
         SkinsClasses.Skin.DownloadSkins(); // download skin library
         GamePlayground world = new GamePlayground();
         //p.body.setGravityScale(0);
-
         LevelGameView view = new LevelGameView(world, 800, 600);
         view.setGridResolution(1);
 

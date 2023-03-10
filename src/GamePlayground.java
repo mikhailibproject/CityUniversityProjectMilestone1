@@ -5,6 +5,8 @@ import Surroundings.Platform;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+import java.util.List;
+
 public class GamePlayground extends World {
 
     private Vec2 PlayerSpawnPosition = new Vec2(0,0);
@@ -41,7 +43,12 @@ public class GamePlayground extends World {
         L1Spawner.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner));
         L1Spawner.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner));
         L1Spawner.SpawnEnemy();
-        L1Spawner.SpawnEnemy();
+        EnemySpawner L1Spawner2 = new EnemySpawner(this);
+        L1Spawner2.setPosition(new Vec2(15, -10));
+        L1Spawner2.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner,
+                5, 2, 5));
+        L1Spawner2.SpawnEnemy();
+
     }
 
     public Vec2 getPlayerSpawnPosition(){
