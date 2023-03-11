@@ -8,18 +8,10 @@ import java.awt.event.KeyListener;
 public class Main {
 
     public static void main(String[] args) {
-        SkinsClasses.Skin.DownloadSkins();
+        SkinsClasses.Skin.DownloadSkins(); // download skin library
         GamePlayground world = new GamePlayground();
-        Player p = new Player("StandardPlayerSkin",10, 1, world);
         //p.body.setGravityScale(0);
-        p.setPosition(world.getPlayerSpawnPosition());
-
-        PlayerController controller = new PlayerController(p);
-
-        UserView view = new UserView(world, 800, 600);
-
-        view.addKeyListener(controller);
-
+        LevelGameView view = new LevelGameView(world, 800, 600);
         view.setGridResolution(1);
 
         final JFrame frame = new JFrame("City Game");

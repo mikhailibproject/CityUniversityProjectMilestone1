@@ -1,10 +1,14 @@
+package PlayerClasses;
+
+import PlayerClasses.Player;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class PlayerController implements KeyListener {
     private final Player p;
 
-    PlayerController(Player p) {
+    public PlayerController(Player p) {
         this.p = p;
     }
 
@@ -16,15 +20,19 @@ public class PlayerController implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_A) { // Moving Left
-            p.startWalking(p.walkSpeed * -1);
+            p.currentSpeed = p.walkSpeed * -1;
+            p.startWalking(p.currentSpeed);
             p.removeAllImages();
             p.addImage(p.skin.getOrientationLeft());
         } else if (code == KeyEvent.VK_D) { // moving right
-            p.startWalking(p.walkSpeed);
+            p.currentSpeed = p.walkSpeed;
+            p.startWalking(p.currentSpeed);
             p.removeAllImages();
             p.addImage(p.skin.getOrientationRight());
         } else if (code == KeyEvent.VK_SPACE) { // jump
             p.jump(p.jumHeight);
+        } else if (code == KeyEvent.VK_F){
+            p.weapon.Attack();
         }
     }
 
@@ -32,7 +40,8 @@ public class PlayerController implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
         if(code != KeyEvent.VK_SPACE){
-            p.startWalking(0);
+            p.currentSpeed = 0;
+            p.startWalking(p.currentSpeed);
             p.removeAllImages();
             p.addImage(p.skin.getOrientationBasic());
             //p.stopWalking();

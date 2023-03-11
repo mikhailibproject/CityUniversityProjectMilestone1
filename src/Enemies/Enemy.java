@@ -9,6 +9,9 @@ public  abstract class Enemy extends Walker {
     private final EnemySpawner spawner; // link to the place where enemies can be spawned
     protected Skin skin;
 
+    protected Body target;
+    protected boolean targetIsSet = false;
+
     // Use of basic health and damage stats
     public Enemy(World w, Shape s, EnemySpawner NewSpawner) {
         super(w, s);
@@ -25,6 +28,13 @@ public  abstract class Enemy extends Walker {
         this.setPosition(new Vec2(-1000,-1000));
     }
 
+    public void setTarget(Body instance){
+        this.target = instance;
+        this.targetIsSet = true;
+    }
+    public void deleteTarget(){
+        this.targetIsSet = false;
+    }
     public int GetHealth() {
         return this.health;
     }
@@ -38,5 +48,10 @@ public  abstract class Enemy extends Walker {
         if(this.health <= 0){
             this.destroy();
         }
+    }
+    @Override
+    public void destroy(){
+        super.destroy();
+        this.spawner.SpawnEnemy();
     }
 }
