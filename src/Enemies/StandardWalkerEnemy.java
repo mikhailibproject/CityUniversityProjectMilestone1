@@ -6,6 +6,7 @@ import java.lang.annotation.Target;
 
 public class StandardWalkerEnemy extends Enemy implements StepListener {
     public float walkSpeed = 3;
+    public float currentSpeed = 0f;
     private Sensor vision;
     private EnemyVisionListener visionListener;
 
@@ -37,11 +38,13 @@ public class StandardWalkerEnemy extends Enemy implements StepListener {
     public void preStep(StepEvent stepEvent) {
         if(this.targetIsSet){
             if(this.getPosition().x < this.target.getPosition().x){
-                this.startWalking(walkSpeed);
+                this.currentSpeed = walkSpeed;
+                this.startWalking(currentSpeed);
                 this.removeAllImages();
                 this.addImage(this.skin.getOrientationRight());
             } else {
-                this.startWalking(walkSpeed*-1);
+                this.currentSpeed = walkSpeed*-1;
+                this.startWalking(currentSpeed);
                 this.removeAllImages();
                 this.addImage(this.skin.getOrientationLeft());
             }

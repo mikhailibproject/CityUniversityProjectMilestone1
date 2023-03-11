@@ -49,4 +49,9 @@ public  abstract class Enemy extends Walker {
             this.destroy();
         }
     }
+    @Override
+    public void destroy(){
+        super.destroy();
+        this.spawner.SpawnEnemy();
+    }
 }

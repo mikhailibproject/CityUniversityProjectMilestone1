@@ -92,6 +92,13 @@ public class Skin {
         skinCollection.put("PortalSkin",
                 new Skin("PortalSkin", 5,
                         "Sprites/Portal.png"));
+        //Base sword attack
+        skinCollection.put("BaseSwordAttack",
+                new Skin("BaseSwordAttack", 5,
+                        "Sprites/BaseSwordAttackRight.png",
+                        "Sprites/BaseSwordAttackRight.png",
+                        "Sprites/BaseSwordAttackLeft.png"));
+        skinCollection.get("BaseSwordAttack").SetShape(new BoxShape(0.5f,2.5f));
     }
 
 }
