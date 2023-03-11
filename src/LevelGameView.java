@@ -19,13 +19,17 @@ public class LevelGameView extends UserView implements StepListener{
         this.p.addCollisionListener(new PlayerCollisionListener(this.p));
         PlayerController controller = new PlayerController(this.p);
         addKeyListener(controller);
-        setGridResolution(1);
         w.addStepListener(this);
     }
 
     @Override
     protected void paintBackground(Graphics2D g) {
         g.drawImage(this.background, 0, 0, this);
+        g.setFont(new Font("Default", Font.PLAIN, 20));
+        g.setColor(new Color(7, 7, 7));
+        g.drawString(("Controls: A/D - Right/left"),200, 120);
+        g.drawString(("SPACE - Jump"),200, 140);
+        g.drawString(("F - Attack"),200, 160);
     }
 
     @Override
@@ -35,9 +39,6 @@ public class LevelGameView extends UserView implements StepListener{
         g.drawString(("Health left: "+ this.p.health), 20, 20);
         g.drawString(("LV: "+ this.p.level), 220, 20);
         g.drawString(("Weapon damage: " + this.p.weapon.damage), 320, 20);
-        g.setFont(new Font("Default", Font.PLAIN, 20));
-        g.setColor(new Color(0, 0, 0));
-        g.drawString(("Controls: A/D - Right/left SPACE - Jump F - Attack"),200, 40);
     }
 
     @Override

@@ -10,9 +10,8 @@ public class Main {
     public static void main(String[] args) {
         SkinsClasses.Skin.DownloadSkins(); // download skin library
         GamePlayground world = new GamePlayground();
-        //p.body.setGravityScale(0);
         LevelGameView view = new LevelGameView(world, 800, 600);
-        view.setGridResolution(1);
+        //view.setGridResolution(1);
 
         final JFrame frame = new JFrame("City Game");
         frame.add(view);
