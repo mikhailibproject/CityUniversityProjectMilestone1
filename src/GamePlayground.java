@@ -45,14 +45,14 @@ public class GamePlayground extends World {
         L1Spawner.SpawnEnemy();
         EnemySpawner L1Spawner2 = new EnemySpawner(this);
         L1Spawner2.setPosition(new Vec2(15, -10));
-        L1Spawner2.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner,
+        L1Spawner2.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner2,
                 5, 2, 5));
         L1Spawner2.SpawnEnemy();
 
         // Creation of enemy Spawner Level 2
         EnemySpawner L2Spawner = new EnemySpawner(this);
         L2Spawner.setPosition(new Vec2(-15, -2));
-        L2Spawner.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L1Spawner,
+        L2Spawner.AddEnemyToSpawner(new StandardWalkerEnemy("StandardEnemySkin", this, L2Spawner,
                 5, 2, 1));
         L2Spawner.SpawnEnemy();
 

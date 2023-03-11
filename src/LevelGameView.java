@@ -31,8 +31,13 @@ public class LevelGameView extends UserView implements StepListener{
     @Override
     protected void paintForeground(Graphics2D g) {
         g.setFont(new Font("Default", Font.BOLD, 20));
-        g.setColor(new Color(255, 0, 0));
+        g.setColor(new Color(255, 155, 197));
         g.drawString(("Health left: "+ this.p.health), 20, 20);
+        g.drawString(("LV: "+ this.p.level), 220, 20);
+        g.drawString(("Weapon damage: " + this.p.weapon.damage), 320, 20);
+        g.setFont(new Font("Default", Font.PLAIN, 20));
+        g.setColor(new Color(0, 0, 0));
+        g.drawString(("Controls: A/D - Right/left SPACE - Jump F - Attack"),200, 40);
     }
 
     @Override
