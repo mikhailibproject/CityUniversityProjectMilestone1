@@ -1,4 +1,5 @@
 import PlayerClasses.Player;
+import PlayerClasses.PlayerCollisionListener;
 import PlayerClasses.PlayerController;
 import PlayerClasses.Weapon;
 import city.cs.engine.*;
@@ -15,6 +16,7 @@ public class LevelGameView extends UserView implements StepListener{
         this.p = new Player("StandardPlayerSkin",10, 1, w);
         this.p.SetWeapon("BaseSwordAttack");
         this.p.setPosition(w.getPlayerSpawnPosition());
+        this.p.addCollisionListener(new PlayerCollisionListener(this.p));
         PlayerController controller = new PlayerController(this.p);
         addKeyListener(controller);
         setGridResolution(1);

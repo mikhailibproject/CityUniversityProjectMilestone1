@@ -12,7 +12,7 @@ public class Weapon extends StaticBody implements ActionListener {
     protected Skin weaponSkin; // Will be added in future
     public final int damage = 2; // can be changed in future
     protected Skin attackSkin;
-    private int cooldown = 1000;
+    protected int cooldown = 1000;
     public Timer startCooldown;
     protected boolean weaponIsReady = true;
 
@@ -20,7 +20,7 @@ public class Weapon extends StaticBody implements ActionListener {
         super(w);
         this.attackSkin = Skin.skinCollection.get(AttackSkinName);
         this.p = weaponHolder;
-        this.startCooldown = new Timer(this.cooldown, this);
+        this.startCooldown = new Timer(cooldown, this);
         this.startCooldown.setRepeats(false);
     }
     public void Attack() {
